@@ -111,13 +111,13 @@ export default function Hero() {
               variant="darkGlass"
               className="p-0 shadow-2xl border-white/15 bg-black/35 backdrop-blur-md shadow-black/60"
             >
-              <CardContent className="p-6">
-                <div className="flex items-center justify-between">
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex items-center justify-between gap-3">
                   <div>
                     <div className="text-xs font-semibold text-white/60">
                       Coach
                     </div>
-                    <div className="text-xl font-extrabold text-white">
+                    <div className="text-lg font-extrabold text-white sm:text-xl">
                       {site.brand.name}
                     </div>
                     <div className="text-sm text-white/60">
@@ -144,7 +144,7 @@ export default function Hero() {
                   ].map((row) => (
                     <div
                       key={row.k}
-                      className="flex items-center justify-between px-4 py-3 border rounded-2xl border-white/10 bg-black/35"
+                      className="flex items-center justify-between px-4 py-2 border sm:py-3 rounded-2xl border-white/10 bg-black/35"
                     >
                       <div className="text-sm font-semibold text-white/85">
                         {row.k}
@@ -154,9 +154,9 @@ export default function Hero() {
                   ))}
                 </div>
 
-                <div className="p-4 mt-6 border rounded-2xl border-teal-400/20 bg-teal-500/10">
+                <div className="p-3 mt-4 border sm:p-4 sm:mt-6 rounded-2xl border-teal-400/20 bg-teal-500/10">
                   <div className="text-sm font-bold text-white">Incluye:</div>
-                  <ul className="mt-2 space-y-1 text-sm text-white/75">
+                  <ul className="mt-2 space-y-1 text-sm text-white/75 sm:space-y-1.5">
                     <li>• Evaluación inicial + objetivo realista</li>
                     <li>• Rutina progresiva (gimnasio o casa)</li>
                     <li>• Dieta flexible y sostenible</li>

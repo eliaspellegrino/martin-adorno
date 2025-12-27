@@ -125,7 +125,14 @@ export default function Hero() {
                     </div>
                   </div>
 
-                  <div className="w-12 h-12 shadow-lg rounded-2xl bg-gradient-to-tr from-teal-400 to-cyan-400 shadow-black/40 ring-1 ring-white/10" />
+                  <div className="relative overflow-hidden shadow-lg h-14 w-14 rounded-2xl ring-1 ring-white/15 shadow-black/40 bg-black/40">
+                    <img
+                      src="/img/Avatar-cuadrado.png"
+                      alt="Martín Adorno"
+                      className="object-cover w-full h-full"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
 
                 <div className="grid gap-3 mt-6">

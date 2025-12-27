@@ -8,6 +8,7 @@ import Plans from "./sections/Plans";
 import Testimonials from "./sections/Testimonials";
 import FAQ from "./sections/FAQ";
 import Contact from "./sections/Contact";
+import About from "./sections/About";
 
 export default function App() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
         <main>
           <Hero />
           <Services />
+          <About />
           <Process />
           <Plans />
           <Testimonials />

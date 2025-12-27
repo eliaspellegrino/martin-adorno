@@ -13,9 +13,17 @@ function waLink() {
 export default function Navbar() {
   return (
     <div className="sticky top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur">
-      <Container className="flex h-16 items-center justify-between">
+      <Container className="flex items-center justify-between h-16">
         <a href="#top" className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-xl bg-teal-500/90" />
+          <div className="w-10 h-10 overflow-hidden shadow-lg rounded-xl ring-1 ring-white/15 shadow-black/30 bg-black/40">
+            <img
+              src="/img/Avatar-cuadrado.png"
+              alt="Martín Adorno"
+              className="object-cover w-full h-full"
+              loading="lazy"
+            />
+          </div>
+
           <div className="leading-tight">
             <div className="text-sm font-extrabold tracking-tight text-white">
               {site.brand.name}
@@ -24,8 +32,11 @@ export default function Navbar() {
           </div>
         </a>
 
-        <div className="hidden items-center gap-6 md:flex">
-          <a className="text-sm text-white/70 hover:text-white" href="#servicios">
+        <div className="items-center hidden gap-6 md:flex">
+          <a
+            className="text-sm text-white/70 hover:text-white"
+            href="#servicios"
+          >
             Servicios
           </a>
           <a className="text-sm text-white/70 hover:text-white" href="#planes">
@@ -34,7 +45,10 @@ export default function Navbar() {
           <a className="text-sm text-white/70 hover:text-white" href="#faq">
             FAQ
           </a>
-          <a className="text-sm text-white/70 hover:text-white" href="#contacto">
+          <a
+            className="text-sm text-white/70 hover:text-white"
+            href="#contacto"
+          >
             Contacto
           </a>
         </div>
@@ -46,7 +60,7 @@ export default function Navbar() {
           rel="noreferrer"
           className="gap-2"
         >
-          <MessageCircle className="h-4 w-4" />
+          <MessageCircle className="w-4 h-4" />
           WhatsApp
         </Button>
       </Container>

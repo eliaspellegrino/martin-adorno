@@ -1,5 +1,6 @@
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
+import Card, { CardContent } from "../components/Card";
 import { motion } from "framer-motion";
 import { ClipboardList, Dumbbell, Salad, Target } from "lucide-react";
 
@@ -40,6 +41,7 @@ export default function Services() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {items.map((it, idx) => {
               const Icon = it.icon;
+
               return (
                 <motion.div
                   key={it.title}
@@ -47,13 +49,21 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.45, delay: idx * 0.05 }}
-                  className="rounded-3xl border border-white/10 bg-white/5 p-6"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-500/15">
-                    <Icon className="h-5 w-5 text-teal-300" />
-                  </div>
-                  <h3 className="mt-4 text-lg font-bold text-white">{it.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/70">{it.text}</p>
+                  <Card variant="darkGlass" className="h-full p-0">
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-center h-11 w-11 rounded-2xl bg-teal-500/15">
+                        <Icon className="w-5 h-5 text-teal-300" />
+                      </div>
+
+                      <h3 className="mt-4 text-lg font-bold text-white">
+                        {it.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-white/70">
+                        {it.text}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </motion.div>
               );
             })}

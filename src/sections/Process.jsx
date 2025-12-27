@@ -1,5 +1,6 @@
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
+import Card, { CardContent } from "../components/Card";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
@@ -41,15 +42,20 @@ export default function Process() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.45, delay: idx * 0.05 }}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6"
               >
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 text-teal-300" />
-                  <div>
-                    <h3 className="text-base font-bold text-white">{s.title}</h3>
-                    <p className="mt-1 text-sm text-white/70">{s.text}</p>
-                  </div>
-                </div>
+                <Card variant="darkGlass" className="p-0">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 text-teal-300" />
+                      <div>
+                        <h3 className="text-base font-bold text-white">
+                          {s.title}
+                        </h3>
+                        <p className="mt-1 text-sm text-white/70">{s.text}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </div>

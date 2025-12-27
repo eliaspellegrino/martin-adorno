@@ -1,5 +1,6 @@
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
+import Card, { CardContent } from "../components/Card";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
@@ -38,30 +39,34 @@ export default function FAQ() {
           <div className="space-y-3">
             {faqs.map((f, idx) => {
               const open = openIdx === idx;
+
               return (
-                <div
+                <Card
                   key={f.q}
-                  className="rounded-3xl border border-white/10 bg-white/5"
+                  variant="darkGlass"
+                  className={open ? "border-white/20" : ""}
                 >
                   <button
                     onClick={() => setOpenIdx(open ? -1 : idx)}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-white/[0.04] rounded-3xl"
                   >
                     <span className="text-sm font-bold text-white">{f.q}</span>
                     <ChevronDown
                       className={[
-                        "h-5 w-5 text-white/60 transition",
+                        "h-5 w-5 text-white/60 transition-transform duration-200",
                         open ? "rotate-180" : "rotate-0",
                       ].join(" ")}
                     />
                   </button>
 
                   {open ? (
-                    <div className="px-5 pb-5 text-sm text-white/70">
-                      {f.a}
-                    </div>
+                    <CardContent className="pt-0">
+                      <div className="px-5 pb-5 text-sm text-white/70">
+                        {f.a}
+                      </div>
+                    </CardContent>
                   ) : null}
-                </div>
+                </Card>
               );
             })}
           </div>

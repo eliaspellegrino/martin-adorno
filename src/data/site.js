@@ -7,9 +7,9 @@ export const site = {
   contact: {
     whatsappNumber: "5492324681926", // solo números, sin + ni espacios
     whatsappLabel: "+54 9 2324-681926",
-    email: "cspcn01@gmail.com",
-    address: "Calle 4 e/ 11 y 13 N° 267, Mercedes, Buenos Aires",
-    instagram: "https://instagram.com/",
+    email: "martinadornofit@gmail.com",
+    address: "Mercedes, Buenos Aires",
+    instagram: "https://instagram.com/tinchoadorno",
   },
   hero: {
     headline: "Dietas y rutinas personalizadas para transformar tu cuerpo",

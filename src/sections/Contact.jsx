@@ -23,7 +23,7 @@ export default function Contact() {
                 <SectionTitle
                   eyebrow="Contacto"
                   title="Listo para empezar"
-                  subtitle="Escribime por WhatsApp y te pido 3 datos para armar tu plan inicial."
+                  subtitle="Escribime por WhatsApp para armar tu plan inicial."
                 />
 
                 <div className="space-y-3 text-sm text-white/75">

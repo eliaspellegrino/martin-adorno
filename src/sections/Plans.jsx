@@ -60,7 +60,7 @@ export default function Plans() {
           <SectionTitle
             eyebrow="Planes"
             title="Elegí el nivel de acompañamiento"
-            subtitle="Los precios dependen de modalidad y necesidad. Te paso opciones por WhatsApp en 1 minuto."
+            subtitle="Los precios dependen de modalidad y necesidad."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">

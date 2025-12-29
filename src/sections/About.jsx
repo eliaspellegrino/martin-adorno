@@ -18,7 +18,7 @@ export default function About() {
         <SectionTitle
           eyebrow="Sobre mí"
           title="Formación + experiencia"
-          subtitle="Para que sepas con quién estás trabajando y por qué el plan está pensado en serio."
+          subtitle="Para que sepas con quién estás trabajando."
         />
 
         {/* GRID DE CARDS */}

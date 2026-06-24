@@ -16,18 +16,18 @@ function waLink(planName) {
 const plans = [
   {
     name: "Base",
-    price: "A consultar",
+    price: "$50.000 / mes",
     desc: "Para arrancar con una estructura clara y sostenible.",
     features: [
       "Dieta personalizada",
       "Rutina por nivel",
-      "Ajuste quincenal",
+      "Ajuste mensual",
       "Soporte por WhatsApp (horario acordado)",
     ],
   },
   {
     name: "Pro (Recomendado)",
-    price: "A consultar",
+    price: "$75.000 / mes",
     desc: "Seguimiento más cercano y ajustes semanales.",
     highlight: true,
     features: [
@@ -36,11 +36,13 @@ const plans = [
       "Ajustes semanales",
       "Soporte WhatsApp prioritario",
       "Checklist de hábitos",
+      "2 sesiones presenciales por semana",
     ],
+    note: "3 sesiones presenciales por semana: $125.000 / mes",
   },
   {
     name: "Elite",
-    price: "A consultar",
+    price: "$200.000 / mes",
     desc: "Para objetivos exigentes y máxima personalización.",
     features: [
       "Plan completo ultra personalizado",
@@ -48,6 +50,10 @@ const plans = [
       "Estrategia de adherencia",
       "Soporte cercano",
       "Optimización por rendimiento",
+      "4 sesiones presenciales por semana",
+      "Protocolo avanzado de suplementación",
+      "Optimización de recuperación y descanso",
+      "Corrección técnica mediante bioanálisis",
     ],
   },
 ];
@@ -71,16 +77,16 @@ export default function Plans() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.45, delay: idx * 0.05 }}
-                className={p.highlight ? "relative" : ""}
+                className={p.highlight ? "relative isolate" : ""}
               >
                 {p.highlight ? (
-                  <div className="pointer-events-none absolute -inset-0.5 rounded-3xl bg-gradient-to-r from-teal-500/30 via-cyan-500/20 to-emerald-500/30 blur-md" />
+                  <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-r from-teal-500/20 via-cyan-500/10 to-emerald-500/20 blur-xl" />
                 ) : null}
 
                 <Card
                   variant="darkGlass"
                   className={[
-                    "relative",
+                    "relative overflow-hidden",
                     p.highlight ? "border-teal-400/40" : "",
                   ].join(" ")}
                 >
@@ -96,9 +102,12 @@ export default function Plans() {
                       ) : null}
                     </div>
 
-                    <div className="mt-3 text-3xl font-extrabold tracking-tight text-white">
-                      {p.price}
+                    <div className="mt-3">
+                      <div className="text-3xl font-extrabold tracking-tight text-white">
+                        {p.price}
+                      </div>
                     </div>
+
                     <p className="mt-2 text-sm text-white/70">{p.desc}</p>
 
                     <ul className="mt-5 space-y-2">
@@ -112,6 +121,14 @@ export default function Plans() {
                         </li>
                       ))}
                     </ul>
+
+                    {p.note && (
+                      <div className="mt-5 p-3 rounded-lg bg-teal-500/15 border border-teal-400/30">
+                        <p className="text-sm font-semibold text-teal-200">
+                          🔥 {p.note}
+                        </p>
+                      </div>
+                    )}
 
                     <div className="mt-6">
                       <Button

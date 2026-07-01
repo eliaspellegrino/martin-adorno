@@ -13,47 +13,56 @@ function waLink(planName) {
   return `https://wa.me/${site.contact.whatsappNumber}?text=${text}`;
 }
 
+// ORDEN ESTRATÉGICO (PRO PRIMERO)
 const plans = [
   {
-    name: "Base",
-    price: "$50.000 / mes",
-    desc: "Para arrancar con una estructura clara y sostenible.",
+    name: "Pro",
+    price: "$79k",
+    desc: "El plan ideal para ver resultados reales semana a semana.",
+    highlight: true,
+    note: "La mayoría de mis alumnos está en este plan",
     features: [
-      "Dieta personalizada",
-      "Rutina por nivel",
-      "Ajuste mensual",
-      "Soporte por WhatsApp (horario acordado)",
+      "Plan nutricional flexible",
+      "Rutina progresiva + técnica",
+      "Ajustes todas las semanas",
+      "Soporte prioritario",
+      "Seguimiento de hábitos",
+      "2 clases presenciales por semana",
     ],
   },
   {
-    name: "Pro (Recomendado)",
-    price: "$75.000 / mes",
-    desc: "Seguimiento más cercano y ajustes semanales.",
-    highlight: true,
+    name: "Pro Plus",
+    price: "$129k",
+    desc: "Más frecuencia, más seguimiento, resultados más rápidos.",
     features: [
-      "Dieta personalizada + flexibilidad",
-      "Rutina progresiva + técnica",
-      "Ajustes semanales",
-      "Soporte WhatsApp prioritario",
-      "Checklist de hábitos",
-      "2 sesiones presenciales por semana",
+      "Todo lo del plan Pro",
+      "3 clases presenciales por semana",
+      "Seguimiento más cercano",
     ],
-    note: "3 sesiones presenciales por semana: $125.000 / mes",
   },
   {
     name: "Elite",
-    price: "$200.000 / mes",
-    desc: "Para objetivos exigentes y máxima personalización.",
+    price: "$209k",
+    desc: "Para objetivos exigentes con acompañamiento total.",
     features: [
-      "Plan completo ultra personalizado",
+      "Plan completamente personalizado",
       "Ajustes 2 veces por semana",
       "Estrategia de adherencia",
-      "Soporte cercano",
-      "Optimización por rendimiento",
-      "4 sesiones presenciales por semana",
-      "Protocolo avanzado de suplementación",
-      "Optimización de recuperación y descanso",
-      "Corrección técnica mediante bioanálisis",
+      "Optimización de rendimiento",
+      "Optimización de descanso",
+      "Corrección técnica avanzada",
+      "4 clases presenciales por semana",
+    ],
+  },
+  {
+    name: "Starter",
+    price: "$59k",
+    desc: "Para empezar sin complicaciones y crear constancia.",
+    features: [
+      "Plan nutricional base",
+      "Rutina adaptada a tu nivel",
+      "Ajuste mensual",
+      "Soporte por WhatsApp",
     ],
   },
 ];
@@ -61,15 +70,16 @@ const plans = [
 export default function Plans() {
   return (
     <section id="planes" className="py-16">
-      <Container>
+      <Container className="max-w-6xl">
         <div className="flex flex-col gap-10">
           <SectionTitle
             eyebrow="Planes"
             title="Elegí el nivel de acompañamiento"
-            subtitle="Los precios dependen de modalidad y necesidad."
+            subtitle="Todos los planes son mensuales."
           />
 
-          <div className="grid gap-4 lg:grid-cols-3">
+          {/* GRID CORRECTO */}
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {plans.map((p, idx) => (
               <motion.div
                 key={p.name}
@@ -79,15 +89,17 @@ export default function Plans() {
                 transition={{ duration: 0.45, delay: idx * 0.05 }}
                 className={p.highlight ? "relative isolate" : ""}
               >
-                {p.highlight ? (
+                {p.highlight && (
                   <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-r from-teal-500/20 via-cyan-500/10 to-emerald-500/20 blur-xl" />
-                ) : null}
+                )}
 
                 <Card
                   variant="darkGlass"
                   className={[
-                    "relative overflow-hidden",
-                    p.highlight ? "border-teal-400/40" : "",
+                    "relative overflow-hidden transition-all duration-300",
+                    p.highlight
+                      ? "border-teal-400/40 scale-[1.04] z-10 shadow-2xl"
+                      : "hover:scale-[1.02]",
                   ].join(" ")}
                 >
                   <CardContent className="p-6">
@@ -95,11 +107,12 @@ export default function Plans() {
                       <h3 className="text-lg font-extrabold text-white">
                         {p.name}
                       </h3>
-                      {p.highlight ? (
+
+                      {p.highlight && (
                         <span className="px-3 py-1 text-xs font-bold text-black bg-teal-500 rounded-full">
-                          Mejor opción
+                          🔥 Más elegido
                         </span>
-                      ) : null}
+                      )}
                     </div>
 
                     <div className="mt-3">
@@ -133,14 +146,14 @@ export default function Plans() {
                     <div className="mt-6">
                       <Button
                         as="a"
-                        href={waLink(p.name)}
+                        href={waLink(`${p.name} - ${p.price}`)}
                         target="_blank"
                         rel="noreferrer"
                         className="w-full gap-2"
                         variant={p.highlight ? "primary" : "secondary"}
                       >
                         <MessageCircle className="w-4 h-4" />
-                        Pedir info
+                        Empezar ahora
                       </Button>
                     </div>
                   </CardContent>
@@ -149,6 +162,7 @@ export default function Plans() {
             ))}
           </div>
 
+          {/* BLOQUE DE AYUDA */}
           <Card variant="darkGlass" hover={false}>
             <CardContent className="p-6">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -157,7 +171,7 @@ export default function Plans() {
                     ¿No sabés qué plan te conviene?
                   </div>
                   <div className="text-sm text-white/70">
-                    Me contás tu objetivo y te recomiendo el mejor para tu caso.
+                    Contame tu objetivo y te recomiendo el mejor para tu caso.
                   </div>
                 </div>
 

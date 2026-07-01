@@ -17,7 +17,7 @@ function waLink(planName) {
 const plans = [
   {
     name: "Pro",
-    price: "$79k",
+    price: "$89k",
     desc: "El plan ideal para ver resultados reales semana a semana.",
     highlight: true,
     note: "La mayoría de mis alumnos está en este plan",
@@ -32,7 +32,7 @@ const plans = [
   },
   {
     name: "Pro Plus",
-    price: "$129k",
+    price: "$139k",
     desc: "Más frecuencia, más seguimiento, resultados más rápidos.",
     features: [
       "Todo lo del plan Pro",
@@ -42,7 +42,7 @@ const plans = [
   },
   {
     name: "Elite",
-    price: "$209k",
+    price: "$219k",
     desc: "Para objetivos exigentes con acompañamiento total.",
     features: [
       "Plan completamente personalizado",

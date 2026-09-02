@@ -83,7 +83,7 @@ export default function About() {
                     <span className="text-xs font-semibold">Experiencia</span>
                   </div>
                   <div className="mt-2 text-2xl font-extrabold text-white">
-                    6+ años
+                    7+ años
                   </div>
                   <div className="mt-1 text-xs text-white/55">
                     Planificación personalizada
@@ -98,7 +98,7 @@ export default function About() {
                     85–90%
                   </div>
                   <div className="mt-1 text-xs text-white/55">
-                    Objetivos en 3 meses
+                    Objetivos mes a mes
                   </div>
                 </div>
                 <div className="p-4 border rounded-2xl border-white/10 bg-black/30">
@@ -121,7 +121,7 @@ export default function About() {
                     </span>
                   </div>
                   <div className="mt-2 text-2xl font-extrabold text-white">
-                    Gym propio
+                    Gym
                   </div>
                   <div className="mt-1 text-xs text-white/55">
                     Sesiones de calidad

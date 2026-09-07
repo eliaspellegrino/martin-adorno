@@ -43,7 +43,6 @@ const plans = [
     buttonText: "Elegir Pro",
     features: [
       "2 clases presenciales por semana",
-      "Rutina personalizada y progresiva",
       "Corrección de técnica",
       "Seguimiento del progreso",
       "Soporte por WhatsApp",

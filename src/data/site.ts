@@ -50,7 +50,7 @@ export const plansAr: Plan[] = [
     name: "Pro Plus",
     price: "ARS 139.000",
     priceNote: "por mes · presencial en Mercedes",
-    description: "Más frecuencia para progresar más rápido.",
+    description: "Una clase más por semana.",
     features: [
       "3 clases presenciales por semana",
       "Rutina personalizada y progresiva",

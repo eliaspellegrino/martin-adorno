@@ -48,16 +48,24 @@ const ogUrl = new URL(ogImage.src, site.url).toString();
     <Footer />
     <script is:inline>
       // Agrega el origen de campaña (?c=meta1) al mensaje de WhatsApp para poder
-      // identificar de dónde llega cada consulta. No envía nada a terceros.
+      // identificar de dónde llega cada consulta. Lo guarda mientras dura la
+      // pestaña para no perderlo al cambiar de página. No envía nada a terceros.
       (function () {
-        var c = new URLSearchParams(location.search).get("c");
-        if (!c) return;
-        c = c.replace(/[^a-z0-9_-]/gi, "").slice(0, 24);
+        var clean = function (v) {
+          return (v || "").replace(/[^a-z0-9_-]/gi, "").slice(0, 24);
+        };
+        var c = clean(new URLSearchParams(location.search).get("c"));
+        // El almacenamiento puede estar bloqueado: en ese caso vale solo la URL.
+        try {
+          if (c) sessionStorage.setItem("c", c);
+          else c = clean(sessionStorage.getItem("c"));
+        } catch (e) {}
         if (!c) return;
         document.querySelectorAll("a[data-wa]").forEach(function (a) {
           var url = new URL(a.href);
           var text = url.searchParams.get("text") || "";
-          url.searchParams.set("text", text + " [ref: " + c + "]");
+          // encodeURIComponent: searchParams.set escribiría los espacios como "+".
+          url.search = "?text=" + encodeURIComponent(text + " [ref: " + c + "]");
           a.href = url.toString();
         });
       })();

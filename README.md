@@ -1,16 +1,35 @@
-# React + Vite
+# Martín Adorno — sitio web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio de Martín Adorno (personal trainer, Mercedes, Buenos Aires). Astro estático + Tailwind CSS 4 + TypeScript estricto.
 
-Currently, two official plugins are available:
+## Páginas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `/` — portada con planes en ARS, proceso, FAQ y contacto.
+- `/online` — plan online (Starter, USD 75/mes para el exterior). Destino previsto para la pauta.
+  - `?c=<campaña>` agrega `[ref: <campaña>]` al mensaje precargado de WhatsApp para identificar el origen (ej. `/online?c=meta1`).
 
-## React Compiler
+## Comandos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev        # servidor local
+npm run typecheck  # astro check
+npm run lint       # astro check
+npm run build      # genera dist/
+npm run preview    # sirve dist/ localmente
+```
 
-## Expanding the ESLint configuration
+## Estructura
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/data/site.ts` — planes, textos y datos de contacto.
+- `src/lib/whatsapp.ts` — armado de enlaces de WhatsApp.
+- `src/components/` — Header, Footer, PlanCard, WhatsAppButton.
+- `src/pages/` — rutas.
+- `src/assets/` — imágenes optimizadas con `astro:assets`.
+
+## Notas
+
+- Sin GA4, GTM, Pixel ni Clarity instalados. Cualquier medición se decide aparte.
+- No se pide edad, peso ni altura en el primer contacto por WhatsApp.
+- Los datos de oferta (precios, qué incluye, cobro) están en `src/data/site.ts`; no inventar cifras ni testimonios.
+- Vercel: el framework del proyecto debe ser **Astro** (no Vite) y el directorio de salida `dist`.

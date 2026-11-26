@@ -1,0 +1,105 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import PlanCard from "../components/PlanCard.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+import hero from "../assets/hero.png";
+import martin from "../assets/martin.png";
+import { site, plansAr, faq } from "../data/site";
+
+const services = [
+  { title: "Objetivo claro", text: "Definimos meta y plazos, y cómo vamos a medir el avance." },
+  { title: "Alimentación a tu medida", text: "Un plan flexible, según tus gustos, horarios y presupuesto." },
+  { title: "Rutina progresiva", text: "Entrenamiento por nivel y contexto: gimnasio, casa o híbrido." },
+  { title: "Seguimiento", text: "Revisión del progreso y ajustes según cómo evolucionás." },
+];
+const steps = [
+  { title: "1. Charla inicial", text: "Tu objetivo, tu disponibilidad y dónde entrenás." },
+  { title: "2. Armado del plan", text: "Rutina y alimentación con progresión y foco en la técnica." },
+  { title: "3. Seguimiento", text: "Revisamos el progreso y ajustamos lo que haga falta." },
+];
+---
+
+<Base
+  title="Martín Adorno · Personal Trainer en Mercedes y entrenamiento online"
+  description="Entrenamiento y alimentación personalizados. Clases presenciales en Mercedes, Buenos Aires, y plan online con seguimiento semanal por WhatsApp."
+>
+  <section class="relative isolate overflow-hidden">
+    <Image
+      src={hero}
+      alt=""
+      widths={[640, 1024, 1600]}
+      sizes="100vw"
+      loading="eager"
+      class="absolute inset-0 -z-10 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-ink/70 via-ink/60 to-ink"></div>
+    <div class="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+      <p class="text-sm font-semibold uppercase tracking-widest text-accent">{site.tagline} · {site.city}</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+        Entrenamiento y alimentación a tu medida
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg text-white/80">
+        Clases presenciales en Mercedes o plan online desde cualquier lugar, con seguimiento por WhatsApp.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <WhatsAppButton message="Hola Martín! Vi tu web y quiero consultar por un plan.">Escribime por WhatsApp</WhatsAppButton>
+        <a href="/online" class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/5">Plan online desde cualquier país</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-16" aria-labelledby="servicios">
+    <h2 id="servicios" class="text-2xl font-bold text-white">Qué vas a recibir</h2>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {services.map((s) => (
+        <div class="rounded-2xl border border-line bg-panel p-6">
+          <h3 class="font-bold text-white">{s.title}</h3>
+          <p class="mt-2 text-sm text-white/70">{s.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="planes" class="mx-auto max-w-6xl scroll-mt-20 px-5 py-16" aria-labelledby="planes-t">
+    <h2 id="planes-t" class="text-2xl font-bold text-white">Planes para Argentina</h2>
+    <p class="mt-2 text-white/70">Precios mensuales en pesos argentinos (ARS). ¿Vivís en otro país? Mirá el <a class="text-accent underline" href="/online">plan online en USD</a>.</p>
+    <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      {plansAr.map((plan) => <PlanCard plan={plan} />)}
+    </div>
+  </section>
+
+  <section class="mx-auto grid max-w-6xl gap-10 px-5 py-16 lg:grid-cols-2 lg:items-center" aria-labelledby="sobre">
+    <Image src={martin} alt="Martín Adorno, personal trainer" widths={[480, 800]} sizes="(min-width: 1024px) 560px, 100vw" class="w-full rounded-2xl object-cover" />
+    <div>
+      <h2 id="sobre" class="text-2xl font-bold text-white">Sobre mí</h2>
+      <p class="mt-4 text-white/75">Soy Martín, personal trainer en Mercedes. Armo planes de entrenamiento y alimentación según tu objetivo y tu tiempo, y te acompaño durante todo el proceso.</p>
+      <ol class="mt-6 space-y-4">
+        {steps.map((s) => (
+          <li><span class="font-semibold text-white">{s.title}</span><span class="block text-sm text-white/70">{s.text}</span></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section id="faq" class="mx-auto max-w-3xl scroll-mt-20 px-5 py-16" aria-labelledby="faq-t">
+    <h2 id="faq-t" class="text-2xl font-bold text-white">Preguntas frecuentes</h2>
+    <div class="mt-8 space-y-3">
+      {faq.map((f) => (
+        <details class="group rounded-2xl border border-line bg-panel p-5">
+          <summary class="cursor-pointer font-semibold text-white">{f.q}</summary>
+          <p class="mt-3 text-sm text-white/70">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section id="contacto" class="mx-auto max-w-3xl scroll-mt-20 px-5 py-16 text-center" aria-labelledby="contacto-t">
+    <h2 id="contacto-t" class="text-2xl font-bold text-white">Escribime para empezar</h2>
+    <p class="mt-3 text-white/70">Contame tu objetivo y dónde entrenás. Te respondo por WhatsApp.</p>
+    <div class="mt-6 flex justify-center">
+      <WhatsAppButton message="Hola Martín! Quiero arrancar. Mi objetivo es:">Abrir WhatsApp</WhatsAppButton>
+    </div>
+    <p class="mt-6 text-sm text-white/60">{site.whatsappLabel} · <a class="underline" href={`mailto:${site.email}`}>{site.email}</a> · {site.city}</p>
+  </section>
+</Base>

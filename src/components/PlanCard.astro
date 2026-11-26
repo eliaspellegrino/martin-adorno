@@ -1,0 +1,26 @@
+---
+import type { Plan } from "../data/site";
+import WhatsAppButton from "./WhatsAppButton.astro";
+
+interface Props {
+  plan: Plan;
+}
+const { plan } = Astro.props;
+---
+
+<article class="flex h-full flex-col rounded-2xl border border-line bg-panel p-6">
+  <h3 class="text-lg font-bold text-white">{plan.name}</h3>
+  <p class="mt-3 text-2xl font-extrabold text-white">{plan.price}</p>
+  <p class="text-xs text-white/55">{plan.priceNote}</p>
+  <p class="mt-3 text-sm text-white/70">{plan.description}</p>
+  <ul class="mt-4 flex-1 space-y-2 text-sm text-white/80">
+    {plan.features.map((f) => <li class="flex gap-2"><span aria-hidden="true" class="text-accent">✓</span><span>{f}</span></li>)}
+  </ul>
+  {plan.extra && <p class="mt-4 text-xs text-white/55">{plan.extra}</p>}
+  <WhatsAppButton
+    message={`Hola Martín! Me interesa el plan ${plan.name} (${plan.price} por mes).`}
+    class="mt-5 w-full min-h-12 text-center"
+  >
+    Consultar este plan
+  </WhatsAppButton>
+</article>

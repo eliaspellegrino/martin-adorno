@@ -1,0 +1,24 @@
+---
+import { waLink } from "../lib/whatsapp";
+
+interface Props {
+  message: string;
+  variant?: "primary" | "secondary";
+  class?: string;
+}
+const { message, variant = "primary", class: className = "" } = Astro.props;
+const styles =
+  variant === "primary"
+    ? "bg-accent text-black hover:bg-accent-strong"
+    : "border border-white/20 text-white hover:bg-white/5";
+---
+
+<a
+  href={waLink(message)}
+  data-wa
+  target="_blank"
+  rel="noopener"
+  class={`inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition ${styles} ${className}`}
+>
+  <slot />
+</a>
